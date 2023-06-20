@@ -4,6 +4,7 @@ import MidjourneyImage from "./lib/midjourneyImagine.js";
 import { client, rwClient } from "./lib/twitterClient.js";
 import { mediaTweet } from "./lib/mediaTweet.js";
 import { downloadImage } from "./lib/downloadImage.js";
+import cron from "node-cron";
 
 const midjourneyPromptGenerator = new MidjourneyPromptGenerator();
 const midjourneyImage = new MidjourneyImage();
@@ -32,7 +33,8 @@ async function main() {
 	);
 }
 
-main().catch((err) => {
-	console.error(err);
-	process.exit(1);
+cron.schedule("* * */8 * *", () => {
+	main().catch((err) => {
+		console.error(err);
+	});
 });

@@ -15,6 +15,7 @@
   "dependencies": {
     "dotenv": "^16.3.1",
     "midjourney": "^3.0.81",
+    "node-cron": "^3.0.2",
     "openai": "^3.3.0"
   }
 }
