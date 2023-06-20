@@ -12,7 +12,7 @@ const tweetGenerator = new TweetGenerator();
 
 async function main() {
 	const rollDice = Math.floor(Math.random() * 100);
-	if (rollDice < 50) {
+	if (rollDice < 25) {
 		const { tweet, error } = await tweetGenerator.generate();
 		if (error) {
 			throw error;
@@ -33,7 +33,7 @@ async function main() {
 	);
 }
 
-cron.schedule("* */8 * * *", () => {
+cron.schedule("* * */8 * * *", () => {
 	main().catch((err) => {
 		console.error(err);
 	});
