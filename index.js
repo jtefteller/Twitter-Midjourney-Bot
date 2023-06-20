@@ -24,7 +24,7 @@ async function main() {
 	const prompt = await midjourneyPromptGenerator.generate();
 	const { msg, error } = await midjourneyImage.Chain(prompt);
 	if (error) {
-		throw error2;
+		throw error;
 	}
 	const image = await downloadImage(msg.uri);
 	await mediaTweet(
