@@ -33,7 +33,7 @@ async function main() {
 	);
 }
 
-cron.schedule("0 */8 * * *", () => {
+cron.schedule("0 8,12,16 * * *", () => {
 	main().catch((err) => {
 		console.error(err);
 	});
